@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-transform: capitalize;
+      }
+      header {
+        background: url("https://i.pinimg.com/736x/39/20/93/39209383a16a3d2a8cc5090617260f58.jpg");
+        background-size: cover;
+        height: 100vh;
+        color: white;
+        font-weight: bolder;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .header h2,
+      nav {
+        padding: 20px;
+      }
+      .navigation-bar a {
+        color: white;
+        padding: 20px;
+        font-size: large;
+        text-decoration: none;
+      }
+
+      .navigation-bar a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 100%;
+        height: 2px;
+
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+      .navigation-bar a:hover {
+        color: bisque;
+      }
+
+      .p {
+        text-align: center;
+        padding: 10%;
+        font-size: xx-large;
+      }
+      .container {
+        display: flex;
+        flex-direction: row;
+        height: 90%;
+        background-color: rgb(223, 245, 220);
+      }
+      .image {
+        text-align: center;
+        height: 60vh;
+        padding-top: 20vh;
+        min-width: 50%;
+      }
+      .sample-image {
+        border: 20px solid black;
+      }
+      .description {
+        padding-top: 20vh;
+        padding-right: 10vw;
+        text-align: center;
+        font-size: large;
+      }
+      .slider {
+        text-align: center;
+        padding: 40px 0;
+      }
+      .slider img {
+        width: 60%;
+        border: 5px solid black;
+      }
+      select {
+        background-color: rgb(59, 14, 14);
+        color: white;
+      }
+      footer {
+        background: url("bgimage.jpeg");
+        text-align: center;
+        color: #b22222;
+        display: flex;
+        flex-direction: row;
+      }
+      .footer {
+        width: 100%;
+
+        height: auto;
+      }
+
+      .t2 {
+        font-size: smaller;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div>
+          <h2>Dynamic coders</h2>
+        </div>
+        <div>
+          <nav class="navigation-bar">
+            <a href="index.html">Home</a>
+            <a href="about.html">about</a>
+            <a href="products.html">products</a>
+            <a href="contact.html">contact</a>
+
+            <select name="Branch" id="branch">
+              <option value="">more</option>
+              <option value="">cart</option>
+              <option value="BCA">my order</option>
+              <option value="MBA-HM">wishlist</option>
+              <option value="B.Pharma">setting</option>
+              <option value="M.Tech">reach us</option>
+              <option value="MBA-Finance">logout</option></select
+            ><br /><br />
+          </nav>
+        </div>
+      </div>
+      <p class="p">grow your home with us</p>
+    </header>
+    <main>
+      <div class="slider">
+        <img name="slide" width="100%" height="400px" />
+      </div>
+      <div class="container">
+        <div class="image">
+          <img
+            class="sample-image"
+            src="https://i.pinimg.com/736x/39/20/93/39209383a16a3d2a8cc5090617260f58.jpg"
+            width="70%"
+            alt="image1"
+          />
+        </div>
+        <div class="description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+          ratione veritatis suscipit? Unde suscipit et repellendus ducimus
+          ullam. Recusandae, culpa! Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Perspiciatis temporibus rem explicabo illo
+          asperiores cum nisi consectetur, culpa ex? Labore nihil voluptas
+          facere, eum laborum voluptatum praesentium beatae. Sit modi quaerat
+          enim ad, numquam veritatis quod soluta animi dignissimos, adipisci
+          quae maiores molestias nemo eum facilis omnis odit aliquam quasi!
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="t2">
+          <p>Delhi Pune Banglore<br />140-401</p>
+        </div>
+        <br /><br />
+        <div class="contact">
+          <p>
+            Phone: 0x0x0x0x0x<br />
+            Email: query@dynamiccoders@gmail.com<br />
+            Web: Dynamiccoderss.com
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    var i = 0; // Start Point
+    var images = []; // Images Array
+    var time = 2000; // Time Between Switch
+
+    // Image List
+    images[0] = "p1.jpeg";
+    images[2] = "p2.jpeg";
+    images[3] = "p3.jpeg";
+    images[4] = "p4.jpeg";
+    images[1] = "p5.jpeg";
+
+    // Change Image
+    function changeImg() {
+      document.slide.src = images[i];
+
+      // Check If Index Is Under Max
+      if (i < images.length - 1) {
+        // Add 1 to Index
+        i++;
+      } else {
+        // Reset Back To O
+        i = 0;
+      }
+
+      // Run function every x seconds
+      setTimeout("changeImg()", time);
+    }
+
+    // Run function when page loads
+    window.onload = changeImg;
+  </script>
+</html>
